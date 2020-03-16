@@ -102,7 +102,7 @@ Module.register("MMM-MercuryInRetrograde", {
         setInterval(() => {
             this.getMercury();
         }, this.config.updateInterval);
-        this.getMercury(this.config.initialLoadDelay);
+        this.getMercury(this.config.animationSpeed);
     },
 
     getMercury: function() {
@@ -112,9 +112,7 @@ Module.register("MMM-MercuryInRetrograde", {
     socketNotificationReceived: function(notification, payload) {
         if (notification === "MERCURY_RESULT") {
             this.processMercury(payload);
-
-            this.updateDom(this.config.animationSpeed);
+              this.updateDom(this.config.animationSpeed);
         }
-        this.updateDom(this.config.initialLoadDelay);
     },
 });
